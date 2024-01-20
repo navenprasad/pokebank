@@ -13,10 +13,4 @@ export class AppController {
   getHello(): string {
     return this.appService.getHello();
   }
-  // Add a new route handler at /cards
-  @Get('cards')
-  getCards(): string {
-    //return cardsService.getCards();
-    return this.cardsService.getCards();
-  }
 }
