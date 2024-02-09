@@ -16,3 +16,12 @@ model Card {
   updatedAt DateTime @updatedAt
   name      String
 }
+
+model Deck {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  name      String
+  cards     Card[]
+}        
+
