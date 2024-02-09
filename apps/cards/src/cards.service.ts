@@ -5,7 +5,7 @@ import { PrismaService } from './prisma/prisma.service';
 
 @Injectable()
 export class CardsService {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(private readonly prisma: PrismaService) { }
   create(createCardDto: CreateCardDto) {
     return this.prisma.card.create({ data: createCardDto });
   }

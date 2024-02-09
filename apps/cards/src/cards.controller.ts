@@ -15,7 +15,7 @@ import { ApiTags } from '@nestjs/swagger';
 @Controller('cards')
 @ApiTags('cards')
 export class CardsController {
-  constructor(private readonly cardsService: CardsService) {}
+  constructor(private readonly cardsService: CardsService) { }
 
   @Post()
   create(@Body() createCardDto: CreateCardDto) {
@@ -36,9 +36,15 @@ export class CardsController {
   update(@Param('id') id: string, @Body() updateCardDto: UpdateCardDto) {
     return this.cardsService.update(+id, updateCardDto);
   }
+  // get new cards
 
   @Delete(':id')
   remove(@Param('id') id: string) {
     return this.cardsService.remove(+id);
+  }
+
+  @Get('deck/:deckId')
+  findByDeckId(@Param('deckId') deckId: string) {
+    return this.cardsService.findByDeckId(+deckId);
   }
 }
